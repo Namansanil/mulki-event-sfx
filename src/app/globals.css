@@ -1,26 +1,69 @@
 @import "tailwindcss";
+@plugin "tailwind-scrollbar-hide";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #050505;
+  --foreground: #ffffff;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+@theme {
+  --color-background: #050505;
+  --color-foreground: #ffffff;
+  
+  --color-primary: #FF7A00;
+  --color-secondary: #FF2B9A;
+  --color-accent: #8B3DFF;
+  --color-blue: #246BFF;
+  
+  --color-surface: #0A0A0D;
+  --color-muted: #A5A5A5;
+  
+  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-body: var(--font-inter), sans-serif;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
+  font-family: var(--font-body);
+  /* Smooth scrolling enforced via Lenis mostly, but this is a fallback */
+  scroll-behavior: smooth;
+  overflow-x: hidden;
+}
+
+/* Custom Gradient Utilities */
+.text-gradient {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-blue));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.bg-gradient-mulki {
+  background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-blue));
+}
+
+.border-gradient-mulki {
+  border-image: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-blue)) 1;
+}
+
+/* Lenis Recommended CSS */
+html.lenis, html.lenis body {
+  height: auto;
+}
+
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+.lenis.lenis-smooth iframe {
+  pointer-events: none;
 }
