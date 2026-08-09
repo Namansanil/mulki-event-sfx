@@ -10,28 +10,28 @@ const categories = [
     title: 'WEDDINGS',
     description: 'Dream weddings crafted with perfection and elegance.',
     icon: Heart,
-    image: '/Photos-1-001/IMG-20260809-WA0015.jpg',
+    media: '/Photos-1-001/VID-20260809-WA0037.mp4',
     color: 'from-primary/80 to-transparent'
   },
   {
     title: 'CORPORATE EVENTS',
     description: 'Professional events that inspire, connect, and engage.',
     icon: Briefcase,
-    image: '/Photos-1-001/IMG-20260809-WA0019.jpg',
+    media: '/Photos-1-001/IMG-20260809-WA0019.jpg',
     color: 'from-blue/80 to-transparent'
   },
   {
     title: 'LIVE CONCERTS',
     description: 'High-energy shows with powerful sound and lighting production.',
     icon: Music,
-    image: '/Photos-1-001/IMG-20260809-WA0023.jpg',
+    media: '/Photos-1-001/VID-20260809-WA0044.mp4',
     color: 'from-accent/80 to-transparent'
   },
   {
     title: 'PRIVATE CELEBRATIONS',
     description: 'Make your special moments even more spectacular.',
     icon: GlassWater,
-    image: '/Photos-1-001/IMG-20260809-WA0028.jpg',
+    media: '/Photos-1-001/IMG-20260809-WA0028.jpg',
     color: 'from-secondary/80 to-transparent'
   }
 ];
@@ -74,14 +74,25 @@ export default function Intro() {
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
               <Link href="#services" className="block group relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-colors">
-                {/* Background Image */}
+                {/* Background Image/Video */}
                 <div className="absolute inset-0 z-0">
-                  <Image 
-                    src={category.image} 
-                    alt={category.title}
-                    fill
-                    className="object-cover transition-transform duration-700 group-hover:scale-110"
-                  />
+                  {category.media.endsWith('.mp4') ? (
+                    <video
+                      src={category.media}
+                      autoPlay
+                      loop
+                      muted
+                      playsInline
+                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  ) : (
+                    <Image 
+                      src={category.media} 
+                      alt={category.title}
+                      fill
+                      className="object-cover transition-transform duration-700 group-hover:scale-110"
+                    />
+                  )}
                 </div>
                 
                 {/* Overlays */}

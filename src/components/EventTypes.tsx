@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const events = [
-  { name: 'WEDDINGS', image: '/Photos-1-001/IMG-20260809-WA0060.jpg' },
-  { name: 'RECEPTIONS', image: '/Photos-1-001/IMG-20260809-WA0063.jpg' },
-  { name: 'SANGEET', image: '/Photos-1-001/IMG-20260809-WA0065.jpg' },
-  { name: 'CORPORATE EVENTS', image: '/Photos-1-001/IMG-20260809-WA0012.jpg' },
-  { name: 'LIVE CONCERTS', image: '/Photos-1-001/IMG-20260809-WA0013.jpg' },
-  { name: 'PRIVATE PARTIES', image: '/Photos-1-001/IMG-20260809-WA0014.jpg' }
+  { name: 'WEDDINGS', media: '/Photos-1-001/IMG-20260809-WA0060.jpg' },
+  { name: 'RECEPTIONS', media: '/Photos-1-001/IMG-20260809-WA0063.jpg' },
+  { name: 'SANGEET', media: '/Photos-1-001/IMG-20260809-WA0065.jpg' },
+  { name: 'CORPORATE EVENTS', media: '/Photos-1-001/VID-20260809-WA0038.mp4' },
+  { name: 'LIVE CONCERTS', media: '/Photos-1-001/VID-20260809-WA0042.mp4' },
+  { name: 'PRIVATE PARTIES', media: '/Photos-1-001/IMG-20260809-WA0014.jpg' }
 ];
 
 export default function EventTypes() {
@@ -35,12 +35,23 @@ export default function EventTypes() {
               transition={{ delay: i * 0.1, duration: 0.5 }}
               className="group relative h-64 md:h-80 rounded-2xl overflow-hidden cursor-pointer"
             >
-              <Image 
-                src={event.image} 
-                alt={event.name}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110"
-              />
+              {event.media.endsWith('.mp4') ? (
+                <video
+                  src={event.media}
+                  autoPlay
+                  loop
+                  muted
+                  playsInline
+                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              ) : (
+                <Image 
+                  src={event.media} 
+                  alt={event.name}
+                  fill
+                  className="object-cover transition-transform duration-700 group-hover:scale-110"
+                />
+              )}
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />
               <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80" />
               <div className="absolute inset-0 bg-gradient-to-tr from-primary/30 to-accent/30 opacity-0 group-hover:opacity-100 transition-opacity duration-500 mix-blend-overlay" />

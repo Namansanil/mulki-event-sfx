@@ -9,21 +9,21 @@ const experiences = [
     id: 'light',
     title: 'LIGHT',
     description: 'We design atmosphere through light.',
-    image: '/Photos-1-001/IMG-20260809-WA0015.jpg',
+    media: '/Photos-1-001/VID-20260809-WA0032.mp4',
     color: 'bg-primary/20',
   },
   {
     id: 'sound',
     title: 'SOUND',
     description: 'Every moment deserves the right sound.',
-    image: '/Photos-1-001/IMG-20260809-WA0019.jpg',
+    media: '/Photos-1-001/VID-20260809-WA0033.mp4',
     color: 'bg-accent/20',
   },
   {
     id: 'space',
     title: 'SPACE',
     description: 'We transform venues into experiences.',
-    image: '/Photos-1-001/IMG-20260809-WA0023.jpg',
+    media: '/Photos-1-001/VID-20260809-WA0034.mp4',
     color: 'bg-secondary/20',
   }
 ];
@@ -46,13 +46,24 @@ export default function Experience() {
             transition={{ duration: 1, ease: "easeInOut" }}
             className="absolute inset-0"
           >
-            <Image
-              src={activeExp.image}
-              alt={activeExp.title}
-              fill
-              className="object-cover opacity-50"
-              priority
-            />
+            {activeExp.media.endsWith('.mp4') ? (
+              <video
+                src={activeExp.media}
+                autoPlay
+                loop
+                muted
+                playsInline
+                className="w-full h-full object-cover opacity-50"
+              />
+            ) : (
+              <Image
+                src={activeExp.media}
+                alt={activeExp.title}
+                fill
+                className="object-cover opacity-50"
+                priority
+              />
+            )}
           </motion.div>
         </AnimatePresence>
         <div className="absolute inset-0 bg-black/60 z-10" />

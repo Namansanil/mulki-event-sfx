@@ -7,12 +7,12 @@ import Image from 'next/image';
 const categories = ['ALL', 'WEDDINGS', 'EVENTS', 'LIGHTING', 'SFX', 'DECOR', 'CONCERTS'];
 
 const projects = [
-  { id: 1, title: 'Royal Palace Wedding', category: 'WEDDINGS', image: '/Photos-1-001/IMG-20260809-WA0039.jpg', height: 'h-[400px]' },
-  { id: 2, title: 'Tech Summit 2026', category: 'EVENTS', image: '/Photos-1-001/IMG-20260809-WA0040.jpg', height: 'h-[300px]' },
-  { id: 3, title: 'Neon Nights Festival', category: 'CONCERTS', image: '/Photos-1-001/IMG-20260809-WA0041.jpg', height: 'h-[500px]' },
-  { id: 4, title: 'Corporate Gala Dinner', category: 'DECOR', image: '/Photos-1-001/IMG-20260809-WA0043.jpg', height: 'h-[350px]' },
-  { id: 5, title: 'Main Stage Lighting', category: 'LIGHTING', image: '/Photos-1-001/IMG-20260809-WA0046.jpg', height: 'h-[450px]' },
-  { id: 6, title: 'Pyrotechnic Finale', category: 'SFX', image: '/Photos-1-001/IMG-20260809-WA0060.jpg', height: 'h-[300px]' },
+  { id: 1, title: 'Royal Palace Wedding', category: 'WEDDINGS', media: '/Photos-1-001/VID-20260809-WA0035.mp4', height: 'h-[400px]' },
+  { id: 2, title: 'Tech Summit 2026', category: 'EVENTS', media: '/Photos-1-001/IMG-20260809-WA0040.jpg', height: 'h-[300px]' },
+  { id: 3, title: 'Neon Nights Festival', category: 'CONCERTS', media: '/Photos-1-001/VID-20260809-WA0036.mp4', height: 'h-[500px]' },
+  { id: 4, title: 'Corporate Gala Dinner', category: 'DECOR', media: '/Photos-1-001/IMG-20260809-WA0043.jpg', height: 'h-[350px]' },
+  { id: 5, title: 'Main Stage Lighting', category: 'LIGHTING', media: '/Photos-1-001/VID-20260809-WA0037.mp4', height: 'h-[450px]' },
+  { id: 6, title: 'Pyrotechnic Finale', category: 'SFX', media: '/Photos-1-001/IMG-20260809-WA0060.jpg', height: 'h-[300px]' },
 ];
 
 export default function Gallery() {
@@ -69,12 +69,23 @@ export default function Gallery() {
                 key={project.id}
                 className={`relative group rounded-2xl overflow-hidden cursor-pointer w-full break-inside-avoid ${project.height}`}
               >
-                <Image 
-                  src={project.image} 
-                  alt={project.title}
-                  fill
-                  className="object-cover transition-transform duration-700 group-hover:scale-110"
-                />
+                {project.media.endsWith('.mp4') ? (
+                  <video
+                    src={project.media}
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
+                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                ) : (
+                  <Image 
+                    src={project.media} 
+                    alt={project.title}
+                    fill
+                    className="object-cover transition-transform duration-700 group-hover:scale-110"
+                  />
+                )}
                 
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/60 transition-colors duration-500" />
                 
