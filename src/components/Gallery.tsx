@@ -93,15 +93,9 @@ export default function Gallery() {
                   <span className="text-primary text-xs font-bold tracking-widest uppercase mb-2 block translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
                     {project.category}
                   </span>
-                  <h3 className="text-white font-heading font-bold text-2xl mb-4 translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
+                  <h3 className="text-white font-heading font-bold text-2xl translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-75">
                     {project.title}
                   </h3>
-                  <div className="inline-flex items-center gap-2 text-xs font-bold tracking-widest text-white translate-y-4 group-hover:translate-y-0 transition-transform duration-500 delay-100">
-                    VIEW PROJECT
-                    <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
                 </div>
               </motion.div>
             ))}

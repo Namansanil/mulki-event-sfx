@@ -60,14 +60,6 @@ export default function EventTypes() {
                 <h3 className="font-heading font-bold text-xl tracking-wider uppercase text-white group-hover:translate-y-[-10px] transition-transform duration-500">
                   {event.name}
                 </h3>
-                <div className="h-0 opacity-0 overflow-hidden group-hover:h-auto group-hover:opacity-100 group-hover:mt-2 transition-all duration-500">
-                  <span className="text-xs font-bold tracking-widest text-primary flex items-center gap-2">
-                    VIEW DETAILS
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </span>
-                </div>
               </div>
             </motion.div>
           ))}
