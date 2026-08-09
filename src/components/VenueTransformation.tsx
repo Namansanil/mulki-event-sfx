@@ -62,7 +62,7 @@ export default function VenueTransformation() {
           {/* After Image (Background) */}
           <div className="absolute inset-0 w-full h-full">
             <Image 
-              src="https://images.unsplash.com/photo-1519167758481-83f550bb49b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+              src="/Photos-1-001/IMG-20260809-WA0012.jpg" 
               alt="Transformed Venue" 
               fill
               className="object-cover"
@@ -80,7 +80,7 @@ export default function VenueTransformation() {
             style={{ clipPath: `inset(0 ${100 - sliderPosition}% 0 0)` }}
           >
             <Image 
-              src="https://images.unsplash.com/photo-1478146896981-b80fe463b330?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+              src="/Photos-1-001/IMG-20260809-WA0013.jpg" 
               alt="Empty Venue" 
               fill
               className="object-cover"

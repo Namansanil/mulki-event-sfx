@@ -7,12 +7,12 @@ import Image from 'next/image';
 const categories = ['ALL', 'WEDDINGS', 'EVENTS', 'LIGHTING', 'SFX', 'DECOR', 'CONCERTS'];
 
 const projects = [
-  { id: 1, title: 'Royal Palace Wedding', category: 'WEDDINGS', image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', height: 'h-[400px]' },
-  { id: 2, title: 'Tech Summit 2026', category: 'EVENTS', image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', height: 'h-[300px]' },
-  { id: 3, title: 'Neon Nights Festival', category: 'CONCERTS', image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', height: 'h-[500px]' },
-  { id: 4, title: 'Corporate Gala Dinner', category: 'DECOR', image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', height: 'h-[350px]' },
-  { id: 5, title: 'Main Stage Lighting', category: 'LIGHTING', image: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', height: 'h-[450px]' },
-  { id: 6, title: 'Pyrotechnic Finale', category: 'SFX', image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80', height: 'h-[300px]' },
+  { id: 1, title: 'Royal Palace Wedding', category: 'WEDDINGS', image: '/Photos-1-001/IMG-20260809-WA0039.jpg', height: 'h-[400px]' },
+  { id: 2, title: 'Tech Summit 2026', category: 'EVENTS', image: '/Photos-1-001/IMG-20260809-WA0040.jpg', height: 'h-[300px]' },
+  { id: 3, title: 'Neon Nights Festival', category: 'CONCERTS', image: '/Photos-1-001/IMG-20260809-WA0041.jpg', height: 'h-[500px]' },
+  { id: 4, title: 'Corporate Gala Dinner', category: 'DECOR', image: '/Photos-1-001/IMG-20260809-WA0043.jpg', height: 'h-[350px]' },
+  { id: 5, title: 'Main Stage Lighting', category: 'LIGHTING', image: '/Photos-1-001/IMG-20260809-WA0046.jpg', height: 'h-[450px]' },
+  { id: 6, title: 'Pyrotechnic Finale', category: 'SFX', image: '/Photos-1-001/IMG-20260809-WA0060.jpg', height: 'h-[300px]' },
 ];
 
 export default function Gallery() {

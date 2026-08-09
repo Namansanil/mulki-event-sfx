@@ -9,10 +9,15 @@ export default function Hero() {
       {/* Background Image / Video Placeholder */}
       <div className="absolute inset-0 z-0">
         <div className="absolute inset-0 bg-black/60 z-10"></div> {/* Dark overlay */}
-        <div 
-          className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549451371-64aa18a64bbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2070&q=80')] 
-                     bg-cover bg-center bg-no-repeat"
-        ></div>
+        <video 
+          className="absolute inset-0 w-full h-full object-cover"
+          autoPlay 
+          muted 
+          loop 
+          playsInline
+        >
+          <source src="/Photos-1-001/VID-20260809-WA0031.mp4" type="video/mp4" />
+        </video>
       </div>
 
       {/* Subtle Animated Glows */}

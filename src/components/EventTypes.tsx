@@ -4,12 +4,12 @@ import { motion } from 'framer-motion';
 import Image from 'next/image';
 
 const events = [
-  { name: 'WEDDINGS', image: 'https://images.unsplash.com/photo-1511285560929-80b456fea0bc?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { name: 'RECEPTIONS', image: 'https://images.unsplash.com/photo-1523438885200-e635ba2c371e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { name: 'SANGEET', image: 'https://images.unsplash.com/photo-1582650584752-959c9914b14d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { name: 'CORPORATE EVENTS', image: 'https://images.unsplash.com/photo-1511578314322-379afb476865?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { name: 'LIVE CONCERTS', image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' },
-  { name: 'PRIVATE PARTIES', image: 'https://images.unsplash.com/photo-1496337589254-2e450b7e245a?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80' }
+  { name: 'WEDDINGS', image: '/Photos-1-001/IMG-20260809-WA0060.jpg' },
+  { name: 'RECEPTIONS', image: '/Photos-1-001/IMG-20260809-WA0063.jpg' },
+  { name: 'SANGEET', image: '/Photos-1-001/IMG-20260809-WA0065.jpg' },
+  { name: 'CORPORATE EVENTS', image: '/Photos-1-001/IMG-20260809-WA0012.jpg' },
+  { name: 'LIVE CONCERTS', image: '/Photos-1-001/IMG-20260809-WA0013.jpg' },
+  { name: 'PRIVATE PARTIES', image: '/Photos-1-001/IMG-20260809-WA0014.jpg' }
 ];
 
 export default function EventTypes() {

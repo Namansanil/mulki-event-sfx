@@ -9,21 +9,21 @@ const experiences = [
     id: 'light',
     title: 'LIGHT',
     description: 'We design atmosphere through light.',
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0015.jpg',
     color: 'bg-primary/20',
   },
   {
     id: 'sound',
     title: 'SOUND',
     description: 'Every moment deserves the right sound.',
-    image: 'https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0019.jpg',
     color: 'bg-accent/20',
   },
   {
     id: 'space',
     title: 'SPACE',
     description: 'We transform venues into experiences.',
-    image: 'https://images.unsplash.com/photo-1549451371-64aa18a64bbb?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0023.jpg',
     color: 'bg-secondary/20',
   }
 ];

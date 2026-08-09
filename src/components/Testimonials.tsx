@@ -9,7 +9,7 @@ export default function Testimonials() {
       {/* Cinematic Background */}
       <div className="absolute inset-0 z-0">
         <Image 
-          src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80" 
+          src="/Photos-1-001/IMG-20260809-WA0014.jpg" 
           alt="Event Crowd" 
           fill
           className="object-cover opacity-40"

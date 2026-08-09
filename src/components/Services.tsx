@@ -7,37 +7,37 @@ const services = [
     num: '01',
     title: 'SFX & SPECIAL EFFECTS',
     items: ['Cold Fire', 'CO₂', 'Low Fog', 'Fireworks', 'Confetti', 'Spark Effects'],
-    image: 'https://images.unsplash.com/photo-1492684223066-81342ee5ff30?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0028.jpg',
   },
   {
     num: '02',
     title: 'LIGHTING',
     items: ['Stage Lighting', 'Architectural Lighting', 'Moving Heads', 'Ambient Lighting', 'Laser & Effects'],
-    image: 'https://images.unsplash.com/photo-1508700115892-45ecd05ae2ad?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0039.jpg',
   },
   {
     num: '03',
     title: 'SOUND',
     items: ['Professional PA Systems', 'DJ Setup', 'Live Sound', 'Microphones', 'Monitoring'],
-    image: 'https://images.unsplash.com/photo-1520523839897-bd0b52f945a0?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0040.jpg',
   },
   {
     num: '04',
     title: 'STAGE & LED',
     items: ['Custom Stage Design', 'LED Walls', 'Screens', 'Truss', 'Stage Structures'],
-    image: 'https://images.unsplash.com/photo-1543781255-a0d33e506644?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0041.jpg',
   },
   {
     num: '05',
     title: 'DECOR',
     items: ['Wedding Decor', 'Floral Decor', 'Entrance Decor', 'Table Styling', 'Theme Design'],
-    image: 'https://images.unsplash.com/photo-1511795409834-ef04bbd61622?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0043.jpg',
   },
   {
     num: '06',
     title: 'ENTERTAINMENT',
     items: ['DJs', 'Live Bands', 'Artists', 'Performers', 'Special Acts'],
-    image: 'https://images.unsplash.com/photo-1470229722913-7c092db62220?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0046.jpg',
   }
 ];
 

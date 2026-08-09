@@ -10,28 +10,28 @@ const categories = [
     title: 'WEDDINGS',
     description: 'Dream weddings crafted with perfection and elegance.',
     icon: Heart,
-    image: 'https://images.unsplash.com/photo-1519225421980-715cb0215aed?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0015.jpg',
     color: 'from-primary/80 to-transparent'
   },
   {
     title: 'CORPORATE EVENTS',
     description: 'Professional events that inspire, connect, and engage.',
     icon: Briefcase,
-    image: 'https://images.unsplash.com/photo-1505373877841-8d25f7d46678?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0019.jpg',
     color: 'from-blue/80 to-transparent'
   },
   {
     title: 'LIVE CONCERTS',
     description: 'High-energy shows with powerful sound and lighting production.',
     icon: Music,
-    image: 'https://images.unsplash.com/photo-1459749411175-04bf5292ceea?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0023.jpg',
     color: 'from-accent/80 to-transparent'
   },
   {
     title: 'PRIVATE CELEBRATIONS',
     description: 'Make your special moments even more spectacular.',
     icon: GlassWater,
-    image: 'https://images.unsplash.com/photo-1530103862676-de8892408c69?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80',
+    image: '/Photos-1-001/IMG-20260809-WA0028.jpg',
     color: 'from-secondary/80 to-transparent'
   }
 ];
