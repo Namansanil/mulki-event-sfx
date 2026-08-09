@@ -91,11 +91,11 @@ export default function Hero() {
             <div className="absolute inset-0 bg-gradient-mulki opacity-0 group-hover:opacity-10 transition-opacity"></div>
           </Link>
 
-          <Link 
+          <a 
             href="https://wa.me/918722524049?text=Hi%20Mulki%20Event%20SFX!%20I'm%20interested%20in%20planning%20an%20event."
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 border border-white/20 hover:border-white/60 text-white font-bold tracking-widest text-xs uppercase transition-colors w-full sm:w-auto text-center block"
+            className="group relative z-50 px-8 py-4 border border-white/20 hover:border-white/60 text-white font-bold tracking-widest text-xs uppercase transition-colors w-full sm:w-auto text-center block"
           >
             <span className="flex items-center justify-center gap-2 w-full">
               LET'S PLAN YOUR EVENT
@@ -103,7 +103,7 @@ export default function Hero() {
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
-          </Link>
+          </a>
         </motion.div>
       </div>
 

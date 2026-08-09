@@ -68,17 +68,16 @@ export default function Navbar() {
 
           {/* Desktop CTA */}
           <div className="hidden lg:flex items-center">
-            <Link
+            <a 
               href="https://wa.me/918722524049?text=Hi%20Mulki%20Event%20SFX!%20I'm%20interested%20in%20planning%20an%20event."
               target="_blank"
               rel="noopener noreferrer"
-              className="relative overflow-hidden group px-6 py-2.5 rounded-full border border-white/20 hover:border-transparent transition-colors"
+              className="hidden md:inline-flex items-center gap-2 px-6 py-2.5 bg-white text-black text-xs font-bold tracking-widest uppercase hover:bg-white/90 transition-colors"
             >
-              <div className="absolute inset-0 bg-gradient-mulki opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
               <span className="relative z-10 text-xs font-bold tracking-widest">
                 LET'S PLAN
               </span>
-            </Link>
+            </a>
           </div>
 
           {/* Mobile Menu Toggle */}
@@ -127,15 +126,15 @@ export default function Navbar() {
                 transition={{ duration: 0.3, delay: 0.2 }}
                 className="mt-4"
               >
-                <Link
+                <a 
                   href="https://wa.me/918722524049?text=Hi%20Mulki%20Event%20SFX!%20I'm%20interested%20in%20planning%20an%20event."
                   target="_blank"
                   rel="noopener noreferrer"
                   onClick={() => setMobileMenuOpen(false)}
-                  className="px-8 py-3 rounded-full bg-gradient-mulki text-sm font-bold tracking-widest text-white"
+                  className="inline-flex w-full justify-center items-center gap-2 px-8 py-4 bg-white text-black text-sm font-bold tracking-widest uppercase"
                 >
                   LET'S PLAN
-                </Link>
+                </a>
               </motion.div>
             </nav>
           </motion.div>
