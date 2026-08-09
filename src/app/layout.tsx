@@ -20,6 +20,14 @@ export const metadata: Metadata = {
     title: "Mulki Event SFX | Premium Event Production & SFX",
     description: "Premium SFX, lighting, sound, decor and event production for unforgettable events.",
     type: "website",
+    images: [
+      {
+        url: '/logo.jpg',
+        width: 1200,
+        height: 630,
+        alt: 'Mulki Event SFX',
+      }
+    ]
   }
 };
 
