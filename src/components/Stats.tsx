@@ -7,7 +7,6 @@ const stats = [
   { label: 'EVENTS', value: 250, suffix: '+' },
   { label: 'WEDDINGS', value: 80, suffix: '+' },
   { label: 'CITIES', value: 15, suffix: '+' },
-  { label: 'YEARS OF EXPERIENCE', value: 10, suffix: '+' },
 ];
 
 function Counter({ from, to, duration = 2 }: { from: number, to: number, duration?: number }) {
@@ -43,7 +42,7 @@ export default function Stats() {
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full max-w-4xl h-32 bg-primary/10 blur-[120px] pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center divide-x divide-white/5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 text-center divide-y md:divide-y-0 md:divide-x divide-white/5">
           {stats.map((stat, i) => (
             <motion.div
               key={stat.label}

@@ -99,7 +99,7 @@ export default function Hero() {
           >
             <span className="flex items-center gap-2">
               LET'S PLAN YOUR EVENT
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform opacity-0 group-hover:opacity-100 -ml-6 group-hover:ml-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
