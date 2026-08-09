@@ -76,15 +76,15 @@ export default function Hero() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.8 }}
-          className="flex flex-col sm:flex-row items-center gap-6"
+          className="flex flex-col sm:flex-row items-center gap-4 sm:gap-6 w-full sm:w-auto px-4 sm:px-0 mt-4 sm:mt-0"
         >
           <Link 
             href="#gallery"
-            className="group relative px-8 py-4 bg-white text-black font-bold tracking-widest text-xs uppercase overflow-hidden"
+            className="group relative px-8 py-4 bg-white text-black font-bold tracking-widest text-xs uppercase overflow-hidden w-full sm:w-auto text-center"
           >
-            <span className="relative z-10 flex items-center gap-2">
+            <span className="relative z-10 flex items-center justify-center gap-2">
               EXPLORE OUR WORK
-              <svg className="w-4 h-4 group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+              <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
               </svg>
             </span>
@@ -95,9 +95,9 @@ export default function Hero() {
             href="https://wa.me/918722524049?text=Hi%20Mulki%20Event%20SFX!%20I'm%20interested%20in%20planning%20an%20event."
             target="_blank"
             rel="noopener noreferrer"
-            className="group relative px-8 py-4 border border-white/20 hover:border-white/60 text-white font-bold tracking-widest text-xs uppercase transition-colors"
+            className="group relative px-8 py-4 border border-white/20 hover:border-white/60 text-white font-bold tracking-widest text-xs uppercase transition-colors w-full sm:w-auto text-center block"
           >
-            <span className="flex items-center gap-2">
+            <span className="flex items-center justify-center gap-2 w-full">
               LET'S PLAN YOUR EVENT
               <svg className="w-4 h-4 transform group-hover:translate-x-1 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
@@ -107,12 +107,12 @@ export default function Hero() {
         </motion.div>
       </div>
 
-      {/* Scroll Indicator */}
+      {/* Scroll Indicator (Hidden on mobile to prevent overlap) */}
       <motion.div 
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
         transition={{ duration: 1, delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        className="hidden sm:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 pointer-events-none z-10"
       >
         <span className="text-[10px] tracking-widest text-muted uppercase font-bold">SCROLL</span>
         <div className="w-[1px] h-12 bg-white/20 relative overflow-hidden">
