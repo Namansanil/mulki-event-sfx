@@ -13,6 +13,7 @@ const projects = [
     title: 'Royal Palace Grand Sangeet', 
     category: 'WEDDINGS', 
     media: '/Photos-1-001/VID-20260809-WA0035.mp4', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0065.jpg',
     type: 'video',
     height: 'h-[440px]',
     desc: 'Grand stage production featuring synchronized cold fire pyro bursts and dynamic laser matrix lighting.'
@@ -22,6 +23,7 @@ const projects = [
     title: 'Tech Leadership Summit 2026', 
     category: 'CORPORATE', 
     media: '/Photos-1-001/IMG-20260809-WA0040.jpg', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0040.jpg',
     type: 'image',
     height: 'h-[320px]',
     desc: 'Ultra-wide P2.6 LED screen backdrop and pristine line-array audio engineering for 1,500+ attendees.'
@@ -31,6 +33,7 @@ const projects = [
     title: 'Neon Nights Arena Festival', 
     category: 'CONCERTS', 
     media: '/Photos-1-001/VID-20260809-WA0036.mp4', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0039.jpg',
     type: 'video',
     height: 'h-[500px]',
     desc: 'Heavy cryogenic CO₂ jet cannons, moving-head beams, and stadium audio setup for live EDM concert.'
@@ -40,6 +43,7 @@ const projects = [
     title: 'VIP Gala Dinner & Awards', 
     category: 'DECOR', 
     media: '/Photos-1-001/IMG-20260809-WA0043.jpg', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0043.jpg',
     type: 'image',
     height: 'h-[360px]',
     desc: 'Lavish botanical floral architecture with warm ambient pinspot lighting for a private celebration.'
@@ -49,6 +53,7 @@ const projects = [
     title: 'Mainstage Lighting Choreography', 
     category: 'LIGHTING', 
     media: '/Photos-1-001/VID-20260809-WA0037.mp4', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0041.jpg',
     type: 'video',
     height: 'h-[460px]',
     desc: 'DMX programmed moving head sweeps with dry-ice low fog carpet for a dreamy walk-in.'
@@ -58,6 +63,7 @@ const projects = [
     title: 'Pyrotechnic Stadium Finale', 
     category: 'SFX', 
     media: '/Photos-1-001/IMG-20260809-WA0060.jpg', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0060.jpg',
     type: 'image',
     height: 'h-[320px]',
     desc: 'Cascading sparkular cold fireworks with zero heat burn, approved for luxury indoor ballrooms.'
@@ -67,6 +73,7 @@ const projects = [
     title: 'Electric Sangeet Night Blast', 
     category: 'SFX', 
     media: '/Photos-1-001/VID-20260809-WA0044.mp4', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0028.jpg',
     type: 'video',
     height: 'h-[420px]',
     desc: 'Continuous cold spark waterfalls and streamer blasters firing on the drop.'
@@ -76,6 +83,7 @@ const projects = [
     title: 'Heritage Ballroom Reception', 
     category: 'WEDDINGS', 
     media: '/Photos-1-001/IMG-20260809-WA0063.jpg', 
+    thumbnail: '/Photos-1-001/IMG-20260809-WA0063.jpg',
     type: 'image',
     height: 'h-[380px]',
     desc: 'Golden ambient wash lighting, truss ceiling rigs, and fairy light star curtain backdrop.'
@@ -190,23 +198,14 @@ export default function Gallery() {
                 className={`relative group rounded-3xl overflow-hidden cursor-pointer w-full break-inside-avoid border border-white/10 bg-surface shadow-xl ${project.height}`}
               >
                 {/* Media */}
-                {project.type === 'video' ? (
-                  <video
-                    src={project.media}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115"
-                  />
-                ) : (
-                  <Image 
-                    src={project.media} 
-                    alt={project.title}
-                    fill
-                    className="object-cover transition-transform duration-1000 group-hover:scale-115"
-                  />
-                )}
+                <Image 
+                  src={project.thumbnail} 
+                  alt={project.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                  className="object-cover transition-transform duration-1000 group-hover:scale-115"
+                  loading="lazy"
+                />
                 
                 {/* Overlays */}
                 <div className="absolute inset-0 bg-black/30 group-hover:bg-black/60 transition-colors duration-500" />

@@ -59,7 +59,9 @@ export default function Testimonials() {
           src="/Photos-1-001/IMG-20260809-WA0014.jpg" 
           alt="Event Crowd Celebration" 
           fill
-          className="object-cover opacity-25 filter blur-[1px]"
+          sizes="100vw"
+          loading="lazy"
+          className="object-cover opacity-20"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-background via-background/80 to-background" />
         <div className="absolute inset-0 bg-radial-gradient from-primary/10 via-transparent to-transparent pointer-events-none" />

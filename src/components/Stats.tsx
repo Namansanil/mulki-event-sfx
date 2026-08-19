@@ -45,8 +45,8 @@ export default function Stats() {
   return (
     <section className="py-24 bg-[#050508] relative overflow-hidden border-y border-white/5">
       {/* Decorative Glow Elements */}
-      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-96 h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-96 h-96 bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/2 left-1/4 -translate-y-1/2 w-80 h-80 bg-primary/10 rounded-full blur-[80px] transform-gpu pointer-events-none" />
+      <div className="absolute top-1/2 right-1/4 -translate-y-1/2 w-80 h-80 bg-accent/10 rounded-full blur-[80px] transform-gpu pointer-events-none" />
 
       <div className="container relative z-10 mx-auto px-6 md:px-12">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">

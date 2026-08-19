@@ -5,12 +5,12 @@ import Image from 'next/image';
 import { Sparkles, ArrowUpRight } from 'lucide-react';
 
 const events = [
-  { name: 'ROYAL WEDDINGS', tag: 'Grand Entry & Pyro', media: '/Photos-1-001/IMG-20260809-WA0060.jpg', type: 'image' },
-  { name: 'RECEPTIONS & SANGEET', tag: 'Moving Heads & Fog', media: '/Photos-1-001/IMG-20260809-WA0063.jpg', type: 'image' },
-  { name: 'LIVE CONCERTS & FESTIVALS', tag: 'CO₂ Jets & Laser Matrix', media: '/Photos-1-001/VID-20260809-WA0042.mp4', type: 'video' },
-  { name: 'CORPORATE SUMMITS & GALAS', tag: 'LED Walls & Sound', media: '/Photos-1-001/VID-20260809-WA0038.mp4', type: 'video' },
-  { name: 'VIP CELEBRATIONS & DJ NIGHTS', tag: 'Cold Fire & Confetti', media: '/Photos-1-001/IMG-20260809-WA0065.jpg', type: 'image' },
-  { name: 'SPORTS & BRAND LAUNCHES', tag: 'Pyrotechnic Finale', media: '/Photos-1-001/IMG-20260809-WA0014.jpg', type: 'image' }
+  { name: 'ROYAL WEDDINGS', tag: 'Grand Entry & Pyro', media: '/Photos-1-001/IMG-20260809-WA0060.jpg' },
+  { name: 'RECEPTIONS & SANGEET', tag: 'Moving Heads & Fog', media: '/Photos-1-001/IMG-20260809-WA0063.jpg' },
+  { name: 'LIVE CONCERTS & FESTIVALS', tag: 'CO₂ Jets & Laser Matrix', media: '/Photos-1-001/IMG-20260809-WA0039.jpg' },
+  { name: 'CORPORATE SUMMITS & GALAS', tag: 'LED Walls & Sound', media: '/Photos-1-001/IMG-20260809-WA0040.jpg' },
+  { name: 'VIP CELEBRATIONS & DJ NIGHTS', tag: 'Cold Fire & Confetti', media: '/Photos-1-001/IMG-20260809-WA0065.jpg' },
+  { name: 'SPORTS & BRAND LAUNCHES', tag: 'Pyrotechnic Finale', media: '/Photos-1-001/IMG-20260809-WA0014.jpg' }
 ];
 
 export default function EventTypes() {
@@ -63,23 +63,14 @@ export default function EventTypes() {
               className="group relative h-72 sm:h-80 md:h-96 rounded-3xl overflow-hidden cursor-pointer border border-white/10 shadow-xl bg-surface"
             >
               {/* Media */}
-              {event.type === 'video' ? (
-                <video
-                  src={event.media}
-                  autoPlay
-                  loop
-                  muted
-                  playsInline
-                  className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115"
-                />
-              ) : (
-                <Image 
-                  src={event.media} 
-                  alt={event.name}
-                  fill
-                  className="object-cover transition-transform duration-1000 group-hover:scale-115"
-                />
-              )}
+              <Image 
+                src={event.media} 
+                alt={event.name}
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                className="object-cover transition-transform duration-1000 group-hover:scale-115"
+                loading="lazy"
+              />
 
               {/* Overlays */}
               <div className="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors duration-500" />

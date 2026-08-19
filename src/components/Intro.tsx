@@ -13,7 +13,7 @@ const categories = [
     subtitle: 'Royal & Dreamy',
     description: 'Dream weddings crafted with cinematic low-fog entry, cold spark pyro, and bespoke romantic lighting.',
     icon: Heart,
-    media: '/Photos-1-001/VID-20260809-WA0037.mp4',
+    media: '/Photos-1-001/IMG-20260809-WA0063.jpg',
     accentColor: '#FF7A00',
     tag: 'GRAND PRODUCTION',
     glowGradient: 'from-primary/70 via-primary/30 to-transparent'
@@ -35,7 +35,7 @@ const categories = [
     subtitle: 'Arenas & Festivals',
     description: 'High-energy live music stages with moving-head beams, laser rigs, CO₂ jets, and stadium sound power.',
     icon: Music,
-    media: '/Photos-1-001/VID-20260809-WA0044.mp4',
+    media: '/Photos-1-001/IMG-20260809-WA0014.jpg',
     accentColor: '#8B3DFF',
     tag: 'ARENA POWER',
     glowGradient: 'from-accent/70 via-accent/30 to-transparent'
@@ -106,23 +106,14 @@ function TiltCard({ category, index }: { category: typeof categories[0]; index: 
       >
         {/* Background Media */}
         <div className="absolute inset-0 z-0">
-          {category.media.endsWith('.mp4') ? (
-            <video
-              src={category.media}
-              autoPlay
-              loop
-              muted
-              playsInline
-              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115 opacity-80"
-            />
-          ) : (
-            <Image 
-              src={category.media} 
-              alt={category.title}
-              fill
-              className="object-cover transition-transform duration-1000 group-hover:scale-115 opacity-80"
-            />
-          )}
+          <Image 
+            src={category.media} 
+            alt={category.title}
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 25vw"
+            className="object-cover transition-transform duration-1000 group-hover:scale-115 opacity-80"
+            loading="lazy"
+          />
         </div>
 
         {/* Dynamic Multi-layered Overlays */}

@@ -20,19 +20,11 @@ export default function CTA() {
 
   return (
     <section id="contact" className="relative py-32 md:py-44 bg-black overflow-hidden border-t border-white/10">
-      {/* Animated Light Energy Mesh */}
-      <motion.div 
-        animate={{ 
-          backgroundPosition: ['0% 50%', '100% 50%', '0% 50%'],
-          scale: [1, 1.1, 1],
-          opacity: [0.25, 0.45, 0.25]
-        }}
-        transition={{ duration: 15, ease: "easeInOut", repeat: Infinity }}
-        className="absolute inset-0 pointer-events-none"
+      {/* Light Energy Mesh */}
+      <div 
+        className="absolute inset-0 pointer-events-none opacity-30 transform-gpu"
         style={{
-          background: 'radial-gradient(circle at 50% 50%, #FF7A00, #FF2B9A, #8B3DFF, transparent 70%)',
-          backgroundSize: '200% 200%',
-          filter: 'blur(120px)'
+          background: 'radial-gradient(circle at 50% 50%, rgba(255,122,0,0.35), rgba(255,43,154,0.2), rgba(139,61,255,0.15), transparent 70%)',
         }}
       />
       

@@ -29,7 +29,7 @@ export default function Hero() {
       {/* Background Video with Parallax & Dark Overlay */}
       <motion.div 
         style={{ scale: videoScale, opacity: videoOpacity }}
-        className="absolute inset-0 z-0 origin-center"
+        className="absolute inset-0 z-0 origin-center will-change-transform"
       >
         <div className="absolute inset-0 bg-gradient-to-b from-black/80 via-black/60 to-background z-10" />
         <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-transparent via-black/40 to-black z-10" />
@@ -39,40 +39,15 @@ export default function Hero() {
           muted 
           loop 
           playsInline
+          preload="metadata"
         >
           <source src="/Photos-1-001/VID-20260809-WA0031.mp4" type="video/mp4" />
         </video>
       </motion.div>
 
-      {/* Dynamic Animated Glow Orbs */}
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.25, 1],
-          opacity: [0.35, 0.65, 0.35],
-          x: [0, 30, 0],
-          y: [0, -20, 0]
-        }}
-        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-        className="absolute top-1/4 -left-32 w-[600px] h-[600px] bg-primary/25 rounded-full blur-[140px] z-0 pointer-events-none"
-      />
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.3, 1],
-          opacity: [0.25, 0.55, 0.25],
-          x: [0, -40, 0],
-          y: [0, 30, 0]
-        }}
-        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
-        className="absolute bottom-1/4 -right-32 w-[650px] h-[650px] bg-accent/25 rounded-full blur-[150px] z-0 pointer-events-none"
-      />
-      <motion.div 
-        animate={{ 
-          scale: [1, 1.2, 1],
-          opacity: [0.2, 0.45, 0.2],
-        }}
-        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut", delay: 2 }}
-        className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-secondary/20 rounded-full blur-[160px] z-0 pointer-events-none"
-      />
+      {/* GPU-Accelerated Static Ambient Lighting */}
+      <div className="absolute top-1/4 -left-32 w-[500px] h-[500px] bg-primary/20 rounded-full blur-[100px] z-0 pointer-events-none transform-gpu" />
+      <div className="absolute bottom-1/4 -right-32 w-[500px] h-[500px] bg-accent/20 rounded-full blur-[100px] z-0 pointer-events-none transform-gpu" />
 
       {/* Content Container */}
       <motion.div 

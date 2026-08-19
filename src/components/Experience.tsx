@@ -76,6 +76,7 @@ export default function Experience() {
                 loop
                 muted
                 playsInline
+                preload="metadata"
                 className="w-full h-full object-cover opacity-45"
               />
             ) : (
@@ -83,6 +84,7 @@ export default function Experience() {
                 src={activeExp.media}
                 alt={activeExp.title}
                 fill
+                sizes="100vw"
                 className="object-cover opacity-45"
                 priority
               />
@@ -95,7 +97,7 @@ export default function Experience() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-black/60 z-10" />
 
         {/* Animated Backdrop Glow */}
-        <div className={`absolute -top-1/4 -right-1/4 w-[700px] h-[700px] ${activeExp.aura} rounded-full blur-[160px] transition-colors duration-1000 z-10 pointer-events-none`} />
+        <div className={`absolute -top-1/4 -right-1/4 w-[500px] h-[500px] ${activeExp.aura} rounded-full blur-[100px] transform-gpu transition-colors duration-1000 z-10 pointer-events-none`} />
       </div>
 
       <div className="container relative z-20 mx-auto px-6 md:px-12 flex flex-col lg:flex-row items-center justify-between gap-12 lg:gap-16">
