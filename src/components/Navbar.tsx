@@ -127,28 +127,27 @@ export default function Navbar() {
       <AnimatePresence>
         {mobileMenuOpen && (
           <motion.div
-            initial={{ opacity: 0, clipPath: 'circle(0% at top right)' }}
-            animate={{ opacity: 1, clipPath: 'circle(150% at top right)' }}
-            exit={{ opacity: 0, clipPath: 'circle(0% at top right)' }}
-            transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-            className="fixed inset-0 z-40 bg-black/95 backdrop-blur-2xl flex flex-col justify-between px-8 py-24"
+            initial={{ opacity: 0, y: -8 }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={{ opacity: 0, y: -8 }}
+            transition={{ duration: 0.25, ease: "easeOut" }}
+            className="fixed inset-0 z-40 bg-[#060608]/98 backdrop-blur-lg flex flex-col justify-between px-7 py-20 overflow-y-auto transform-gpu"
           >
             {/* Ambient Background Glow in Mobile Menu */}
-            <div className="absolute top-1/3 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-primary/20 rounded-full blur-[100px] pointer-events-none" />
-            <div className="absolute bottom-10 right-10 w-72 h-72 bg-accent/20 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-72 h-72 bg-primary/10 rounded-full blur-3xl pointer-events-none transform-gpu" />
 
-            <nav className="flex flex-col gap-5 relative z-10">
+            <nav className="flex flex-col gap-4 relative z-10 pt-4">
               {navLinks.map((link, idx) => (
                 <motion.div
                   key={link.name}
-                  initial={{ opacity: 0, x: -30 }}
+                  initial={{ opacity: 0, x: -16 }}
                   animate={{ opacity: 1, x: 0 }}
-                  exit={{ opacity: 0, x: -20 }}
-                  transition={{ duration: 0.3, delay: 0.05 * idx }}
+                  exit={{ opacity: 0 }}
+                  transition={{ duration: 0.2, delay: 0.03 * idx }}
                 >
                   <Link
                     href={link.href}
-                    className="group flex items-center justify-between text-2xl font-heading font-bold tracking-widest text-white/80 hover:text-white transition-colors"
+                    className="group flex items-center justify-between py-2 text-xl font-heading font-bold tracking-widest text-white/90 active:text-primary transition-colors"
                     onClick={() => setMobileMenuOpen(false)}
                   >
                     <span>{link.name}</span>
@@ -161,24 +160,24 @@ export default function Navbar() {
             </nav>
 
             <motion.div
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 15 }}
               animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: 20 }}
-              transition={{ duration: 0.4, delay: 0.35 }}
-              className="relative z-10 flex flex-col gap-4 pt-6 border-t border-white/10"
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.25, delay: 0.15 }}
+              className="relative z-10 flex flex-col gap-3.5 pt-6 border-t border-white/10 mt-6"
             >
               <a 
                 href="https://wa.me/918722524049?text=Hi%20Mulki%20Event%20SFX!%20I'm%20interested%20in%20planning%20an%20event."
                 target="_blank"
                 rel="noopener noreferrer"
                 onClick={() => setMobileMenuOpen(false)}
-                className="flex items-center justify-center gap-3 w-full py-4 rounded-xl bg-gradient-mulki text-white text-sm font-bold tracking-widest uppercase shadow-xl shadow-primary/25"
+                className="flex items-center justify-center gap-2.5 w-full py-3.5 rounded-full bg-gradient-mulki text-white text-xs font-bold tracking-widest uppercase shadow-lg shadow-primary/20"
               >
                 <Sparkles className="w-4 h-4" />
                 <span>LET'S PLAN YOUR EVENT</span>
               </a>
-              <div className="flex justify-between items-center text-xs text-muted tracking-wider">
-                <span>Direct: +91 87225 24049</span>
+              <div className="flex justify-between items-center text-[11px] text-muted tracking-wider">
+                <span>+91 87225 24049</span>
                 <span>Mulki, Karnataka</span>
               </div>
             </motion.div>
