@@ -2,12 +2,12 @@
 @plugin "tailwind-scrollbar-hide";
 
 :root {
-  --background: #050505;
+  --background: #040406;
   --foreground: #ffffff;
 }
 
 @theme {
-  --color-background: #050505;
+  --color-background: #040406;
   --color-foreground: #ffffff;
   
   --color-primary: #FF7A00;
@@ -15,8 +15,9 @@
   --color-accent: #8B3DFF;
   --color-blue: #246BFF;
   
-  --color-surface: #0A0A0D;
-  --color-muted: #A5A5A5;
+  --color-surface: #0A0A0F;
+  --color-surface-hover: #12121A;
+  --color-muted: #9CA3AF;
   
   --font-heading: var(--font-space-grotesk), sans-serif;
   --font-body: var(--font-inter), sans-serif;
@@ -26,25 +27,91 @@ body {
   background-color: var(--color-background);
   color: var(--color-foreground);
   font-family: var(--font-body);
-  /* Smooth scrolling enforced via Lenis mostly, but this is a fallback */
   scroll-behavior: smooth;
   overflow-x: hidden;
 }
 
+::selection {
+  background: rgba(255, 122, 0, 0.35);
+  color: #ffffff;
+}
+
 /* Custom Gradient Utilities */
 .text-gradient {
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-blue));
+  background: linear-gradient(135deg, #FF7A00 0%, #FF2B9A 35%, #8B3DFF 70%, #246BFF 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-gradient-gold {
+  background: linear-gradient(135deg, #FFF0B3 0%, #FFAA00 50%, #FF6A00 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
 .bg-gradient-mulki {
-  background: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-blue));
+  background: linear-gradient(135deg, #FF7A00, #FF2B9A, #8B3DFF, #246BFF);
+}
+
+.bg-gradient-radial-glow {
+  background: radial-gradient(circle at 50% 50%, rgba(255, 122, 0, 0.15), rgba(139, 61, 255, 0.08), transparent 70%);
 }
 
 .border-gradient-mulki {
-  border-image: linear-gradient(to right, var(--color-primary), var(--color-secondary), var(--color-accent), var(--color-blue)) 1;
+  border-image: linear-gradient(to right, #FF7A00, #FF2B9A, #8B3DFF, #246BFF) 1;
+}
+
+/* Glassmorphism Classes */
+.glass-panel {
+  background: rgba(15, 15, 22, 0.65);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.07);
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: rgba(255, 255, 255, 0.18);
+}
+
+/* Glow Keyframes */
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    transform: scale(1);
+  }
+  50% {
+    opacity: 0.8;
+    transform: scale(1.08);
+  }
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 6s ease-in-out infinite;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #050505;
+}
+::-webkit-scrollbar-thumb {
+  background: #262630;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #3F3F4E;
 }
 
 /* Lenis Recommended CSS */

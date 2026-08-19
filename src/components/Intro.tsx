@@ -1,126 +1,225 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { Heart, Briefcase, Music, GlassWater } from 'lucide-react';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { Heart, Briefcase, Music, Sparkles, ArrowUpRight } from 'lucide-react';
 import Image from 'next/image';
 import Link from 'next/link';
 
 const categories = [
   {
+    id: 'weddings',
     title: 'WEDDINGS',
-    description: 'Dream weddings crafted with perfection and elegance.',
+    subtitle: 'Royal & Dreamy',
+    description: 'Dream weddings crafted with cinematic low-fog entry, cold spark pyro, and bespoke romantic lighting.',
     icon: Heart,
     media: '/Photos-1-001/VID-20260809-WA0037.mp4',
-    color: 'from-primary/80 to-transparent'
+    accentColor: '#FF7A00',
+    tag: 'GRAND PRODUCTION',
+    glowGradient: 'from-primary/70 via-primary/30 to-transparent'
   },
   {
+    id: 'corporate',
     title: 'CORPORATE EVENTS',
-    description: 'Professional events that inspire, connect, and engage.',
+    subtitle: 'Summits & Galas',
+    description: 'High-impact corporate conferences, product launches, and gala dinners with precision AV systems.',
     icon: Briefcase,
     media: '/Photos-1-001/IMG-20260809-WA0019.jpg',
-    color: 'from-blue/80 to-transparent'
+    accentColor: '#246BFF',
+    tag: 'PRECISION AV',
+    glowGradient: 'from-blue/70 via-blue/30 to-transparent'
   },
   {
+    id: 'concerts',
     title: 'LIVE CONCERTS',
-    description: 'High-energy shows with powerful sound and lighting production.',
+    subtitle: 'Arenas & Festivals',
+    description: 'High-energy live music stages with moving-head beams, laser rigs, CO₂ jets, and stadium sound power.',
     icon: Music,
     media: '/Photos-1-001/VID-20260809-WA0044.mp4',
-    color: 'from-accent/80 to-transparent'
+    accentColor: '#8B3DFF',
+    tag: 'ARENA POWER',
+    glowGradient: 'from-accent/70 via-accent/30 to-transparent'
   },
   {
-    title: 'PRIVATE CELEBRATIONS',
-    description: 'Make your special moments even more spectacular.',
-    icon: GlassWater,
+    id: 'celebrations',
+    title: 'PRIVATE PARTIES',
+    subtitle: 'Sangeet & Milestones',
+    description: 'Electrifying private bashes, sangeet nights, and VIP milestones transformed with vibrant atmospheric SFX.',
+    icon: Sparkles,
     media: '/Photos-1-001/IMG-20260809-WA0028.jpg',
-    color: 'from-secondary/80 to-transparent'
+    accentColor: '#FF2B9A',
+    tag: 'IMMERSIVE VIBES',
+    glowGradient: 'from-secondary/70 via-secondary/30 to-transparent'
   }
 ];
 
+// 3D Tilt Card Component
+function TiltCard({ category, index }: { category: typeof categories[0]; index: number }) {
+  const cardRef = useRef<HTMLDivElement>(null);
+  
+  const x = useMotionValue(0);
+  const y = useMotionValue(0);
+
+  const mouseXSpring = useSpring(x, { stiffness: 300, damping: 25 });
+  const mouseYSpring = useSpring(y, { stiffness: 300, damping: 25 });
+
+  const rotateX = useTransform(mouseYSpring, [-0.5, 0.5], ['10deg', '-10deg']);
+  const rotateY = useTransform(mouseXSpring, [-0.5, 0.5], ['-10deg', '10deg']);
+
+  const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
+    if (!cardRef.current) return;
+    const rect = cardRef.current.getBoundingClientRect();
+    const width = rect.width;
+    const height = rect.height;
+    const mouseX = e.clientX - rect.left;
+    const mouseY = e.clientY - rect.top;
+    const xPct = mouseX / width - 0.5;
+    const yPct = mouseY / height - 0.5;
+    x.set(xPct);
+    y.set(yPct);
+  };
+
+  const handleMouseLeave = () => {
+    x.set(0);
+    y.set(0);
+  };
+
+  return (
+    <motion.div
+      initial={{ opacity: 0, y: 50 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, margin: "-80px" }}
+      transition={{ duration: 0.7, delay: index * 0.12, ease: [0.16, 1, 0.3, 1] }}
+      style={{ perspective: 1000 }}
+    >
+      <motion.div
+        ref={cardRef}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        style={{
+          rotateX,
+          rotateY,
+          transformStyle: 'preserve-3d',
+        }}
+        whileHover={{ scale: 1.02 }}
+        className="group relative h-[480px] lg:h-[520px] rounded-3xl overflow-hidden border border-white/10 bg-surface shadow-2xl transition-all duration-300"
+      >
+        {/* Background Media */}
+        <div className="absolute inset-0 z-0">
+          {category.media.endsWith('.mp4') ? (
+            <video
+              src={category.media}
+              autoPlay
+              loop
+              muted
+              playsInline
+              className="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-115 opacity-80"
+            />
+          ) : (
+            <Image 
+              src={category.media} 
+              alt={category.title}
+              fill
+              className="object-cover transition-transform duration-1000 group-hover:scale-115 opacity-80"
+            />
+          )}
+        </div>
+
+        {/* Dynamic Multi-layered Overlays */}
+        <div className="absolute inset-0 bg-black/40 z-10 group-hover:bg-black/20 transition-colors duration-500" />
+        <div className={`absolute inset-0 bg-gradient-to-t ${category.glowGradient} z-10 opacity-30 group-hover:opacity-85 transition-opacity duration-700`} />
+        <div className="absolute inset-0 bg-gradient-to-t from-black via-black/60 to-transparent z-10" />
+
+        {/* Card Header Content (Top) */}
+        <div className="absolute top-6 left-6 right-6 z-20 flex items-center justify-between" style={{ transform: 'translateZ(30px)' }}>
+          <span className="px-3 py-1 rounded-full bg-black/60 backdrop-blur-md border border-white/15 text-[10px] font-bold tracking-[0.2em] text-white/90 uppercase">
+            {category.tag}
+          </span>
+          <div className="w-10 h-10 rounded-full bg-white/10 backdrop-blur-md border border-white/20 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-all duration-500">
+            <ArrowUpRight className="w-4 h-4 text-white group-hover:text-black transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-all duration-300" />
+          </div>
+        </div>
+
+        {/* Card Body Content (Bottom) */}
+        <div className="absolute inset-0 z-20 p-7 flex flex-col justify-end" style={{ transform: 'translateZ(40px)' }}>
+          <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-2xl bg-black/60 backdrop-blur-md border border-white/20 group-hover:border-white/50 group-hover:scale-110 transition-all duration-500 shadow-xl">
+            <category.icon className="w-5 h-5 text-white" style={{ color: category.accentColor }} />
+          </div>
+
+          <span className="text-xs font-bold tracking-[0.2em] text-primary uppercase mb-1">
+            {category.subtitle}
+          </span>
+
+          <h3 className="font-heading font-black text-2xl tracking-wider text-white uppercase mb-3 drop-shadow-md">
+            {category.title}
+          </h3>
+
+          <p className="text-white/80 text-xs md:text-sm leading-relaxed mb-4 line-clamp-3 group-hover:text-white transition-colors duration-300">
+            {category.description}
+          </p>
+
+          <Link
+            href="#services"
+            className="inline-flex items-center gap-2 text-xs font-bold tracking-[0.2em] text-white uppercase pt-2 border-t border-white/15 group-hover:border-white/40 group-hover:text-primary transition-colors"
+          >
+            <span>VIEW PACKAGES</span>
+            <ArrowUpRight className="w-3.5 h-3.5" />
+          </Link>
+        </div>
+      </motion.div>
+    </motion.div>
+  );
+}
+
 export default function Intro() {
   return (
-    <section id="about" className="py-24 md:py-32 bg-background relative overflow-hidden">
+    <section id="about" className="py-28 md:py-36 bg-background relative overflow-hidden">
+      {/* Background Decorative Glow */}
+      <div className="absolute top-1/2 left-0 w-96 h-96 bg-primary/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-0 right-0 w-96 h-96 bg-accent/10 rounded-full blur-[140px] pointer-events-none" />
+
       <div className="container mx-auto px-6 md:px-12">
-        {/* Header */}
-        <div className="max-w-3xl mb-20">
-          <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6 }}
-            className="font-heading font-bold text-4xl md:text-5xl lg:text-6xl mb-6 uppercase"
-          >
-            YOU DREAM IT. <br/>
-            <span className="text-muted">WE CREATE IT.</span>
-          </motion.h2>
+        {/* Section Header */}
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between mb-20 gap-8">
+          <div className="max-w-3xl">
+            <motion.div
+              initial={{ opacity: 0, x: -30 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold tracking-[0.25em] uppercase mb-5"
+            >
+              <Sparkles className="w-3.5 h-3.5" />
+              <span>WHAT WE DO</span>
+            </motion.div>
+
+            <motion.h2 
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.1 }}
+              className="font-heading font-black text-4xl sm:text-5xl lg:text-6xl uppercase tracking-tight leading-[1.08]"
+            >
+              YOU DREAM IT. <br/>
+              <span className="text-gradient">WE BRING IT TO LIFE.</span>
+            </motion.h2>
+          </div>
+
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "-100px" }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-muted text-base md:text-lg leading-relaxed max-w-2xl"
+            viewport={{ once: true }}
+            transition={{ duration: 0.7, delay: 0.25 }}
+            className="text-muted text-base md:text-lg leading-relaxed max-w-lg lg:text-right font-light"
           >
-            From intimate celebrations to large-scale productions, we combine creativity, technology and flawless execution to create experiences people remember.
+            From high-energy festivals to fairy-tale wedding walk-ins, we engineer sensory magic with flawless timing and world-class gear.
           </motion.p>
         </div>
 
-        {/* Categories Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        {/* Categories Grid with 3D Tilt */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {categories.map((category, index) => (
-            <motion.div
-              key={category.title}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
-            >
-              <Link href="#services" className="block group relative h-[400px] lg:h-[450px] rounded-2xl overflow-hidden border border-white/10 hover:border-white/30 transition-colors">
-                {/* Background Image/Video */}
-                <div className="absolute inset-0 z-0">
-                  {category.media.endsWith('.mp4') ? (
-                    <video
-                      src={category.media}
-                      autoPlay
-                      loop
-                      muted
-                      playsInline
-                      className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  ) : (
-                    <Image 
-                      src={category.media} 
-                      alt={category.title}
-                      fill
-                      className="object-cover transition-transform duration-700 group-hover:scale-110"
-                    />
-                  )}
-                </div>
-                
-                {/* Overlays */}
-                <div className="absolute inset-0 bg-background/40 z-10 transition-opacity group-hover:opacity-20" />
-                <div className={`absolute inset-0 bg-gradient-to-t ${category.color} z-10 opacity-60 group-hover:opacity-90 transition-opacity duration-500`} />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-background/50 to-transparent z-10" />
-
-                {/* Content */}
-                <div className="absolute inset-0 z-20 p-8 flex flex-col justify-end">
-                  <div className="mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full bg-white/10 backdrop-blur-sm border border-white/20 group-hover:scale-110 transition-transform duration-500">
-                    <category.icon className="w-5 h-5 text-white" />
-                  </div>
-                  <h3 className="font-heading font-bold tracking-widest text-lg mb-2 group-hover:text-transparent group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-white group-hover:to-white/70 transition-all">
-                    {category.title}
-                  </h3>
-                  <p className="text-white/70 text-sm leading-relaxed mb-4 opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500">
-                    {category.description}
-                  </p>
-                  
-                  <div className="flex items-center gap-2 text-xs font-bold tracking-widest uppercase opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-500 delay-100">
-                    EXPLORE 
-                    <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-                    </svg>
-                  </div>
-                </div>
-              </Link>
-            </motion.div>
+            <TiltCard key={category.id} category={category} index={index} />
           ))}
         </div>
       </div>
