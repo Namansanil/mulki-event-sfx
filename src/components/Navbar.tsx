@@ -54,34 +54,18 @@ export default function Navbar() {
         }`}
       >
         <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12 flex items-center justify-between gap-6">
-          {/* Logo with interactive hover */}
-          <Link href="/" className="relative z-50 flex items-center gap-3 group shrink-0">
-            <motion.div 
-              whileHover={{ rotate: 15, scale: 1.1 }}
-              transition={{ type: 'spring', stiffness: 300 }}
-              className="relative w-10 h-10 rounded-full overflow-hidden p-[1.5px] bg-gradient-mulki shadow-lg shadow-primary/20"
-            >
-              <div className="w-full h-full rounded-full overflow-hidden bg-black">
-                <Image 
-                  src="/logo.jpg" 
-                  alt="Mulki Event SFX Logo" 
-                  width={40} 
-                  height={40} 
-                  className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                />
-              </div>
-            </motion.div>
-            <div className="flex flex-col">
-              <span className="font-heading font-bold text-lg tracking-wider text-white flex items-center gap-1.5">
-                MULKI 
-                <span className="text-[10px] tracking-[0.25em] font-semibold uppercase px-2 py-0.5 rounded-full bg-primary/20 text-primary border border-primary/30">
-                  SFX
-                </span>
-              </span>
-              <span className="text-[10px] tracking-[0.2em] text-muted uppercase font-medium">
-                Production & Events
-              </span>
-            </div>
+          {/* Logo */}
+          <Link href="/" className="relative z-50 flex items-center gap-2 group shrink-0">
+            <Image 
+              src="/logo.jpg" 
+              alt="Mulki Event SFX Logo" 
+              width={40} 
+              height={40} 
+              className="rounded-full object-cover"
+            />
+            <span className="font-heading font-bold text-lg tracking-wider text-white">
+              MULKI <span className="text-muted text-sm font-normal">EVENT SFX</span>
+            </span>
           </Link>
 
           {/* Desktop Navigation with Animated Hover Indicator */}

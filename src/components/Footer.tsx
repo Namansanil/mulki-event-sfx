@@ -21,20 +21,16 @@ export default function Footer() {
           
           {/* Brand Col (Span 2) */}
           <div className="flex flex-col gap-6 lg:col-span-2">
-            <Link href="/" className="flex items-center gap-3 group">
-              <div className="relative w-10 h-10 rounded-full overflow-hidden p-[1.5px] bg-gradient-mulki">
-                <div className="w-full h-full rounded-full overflow-hidden bg-black">
-                  <Image 
-                    src="/logo.jpg" 
-                    alt="Mulki Event SFX Logo" 
-                    width={40} 
-                    height={40} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
-                  />
-                </div>
-              </div>
-              <span className="font-heading font-black text-xl tracking-wider text-white">
-                MULKI <span className="text-primary text-sm font-bold">EVENT SFX</span>
+            <Link href="/" className="flex items-center gap-2 group">
+              <Image 
+                src="/logo.jpg" 
+                alt="Mulki Event SFX Logo" 
+                width={40} 
+                height={40} 
+                className="rounded-full object-cover"
+              />
+              <span className="font-heading font-bold text-lg tracking-wider text-white">
+                MULKI <span className="text-muted text-sm font-normal">EVENT SFX</span>
               </span>
             </Link>
             
