@@ -16,6 +16,15 @@ const spaceGrotesk = Space_Grotesk({
 export const metadata: Metadata = {
   title: "Mulki Event SFX | Premium Event Production & SFX",
   description: "Mulki Event SFX creates unforgettable events through premium SFX, lighting, sound, decor and event production for weddings, corporate events, concerts and celebrations.",
+  icons: {
+    icon: [
+      { url: '/logo.jpg' },
+      { url: '/logo.jpg', sizes: '32x32', type: 'image/jpeg' },
+      { url: '/logo.jpg', sizes: '192x192', type: 'image/jpeg' },
+    ],
+    shortcut: '/logo.jpg',
+    apple: '/logo.jpg',
+  },
   openGraph: {
     title: "Mulki Event SFX | Premium Event Production & SFX",
     description: "Premium SFX, lighting, sound, decor and event production for unforgettable events.",
